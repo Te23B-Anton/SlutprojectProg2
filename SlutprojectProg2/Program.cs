@@ -12,9 +12,9 @@ using static Raylib_cs.Raylib;
         
         BeginDrawing();
         ClearBackground(Color.Black);
-        DrawText("hej",200,200,200,Color.White);
+        DrawText("Hello Huzz",200,200,100,Color.White);
 
-        DrawCircle(475,225,20,Color.White);
+      
         EndDrawing();
 
     }

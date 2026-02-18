@@ -20,3 +20,4 @@ C:\Users\anton.faren\Desktop\prog2\SlutprojectProg2\SlutprojectProg2\obj\Debug\n
 C:\Users\anton.faren\Desktop\prog2\SlutprojectProg2\SlutprojectProg2\obj\Debug\net9.0\SlutprojectProg2.pdb
 C:\Users\anton.faren\Desktop\prog2\SlutprojectProg2\SlutprojectProg2\obj\Debug\net9.0\SlutprojectProg2.genruntimeconfig.cache
 C:\Users\anton.faren\Desktop\prog2\SlutprojectProg2\SlutprojectProg2\obj\Debug\net9.0\ref\SlutprojectProg2.dll
+C:\Users\anton.faren\Desktop\prog2\SlutprojectProg2\SlutprojectProg2\obj\Debug\net9.0\SlutprojectProg2.sourcelink.json
