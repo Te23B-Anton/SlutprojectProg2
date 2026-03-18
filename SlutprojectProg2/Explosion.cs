@@ -8,4 +8,6 @@ public class Explosion
     public float Life;
 
     public Vector2 Posistion;
+
+     public float Radius;
 }

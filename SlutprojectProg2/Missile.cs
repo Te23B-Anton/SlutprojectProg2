@@ -9,6 +9,6 @@ public class Missile
     
     public Vector2 Position;
 
-    public float Radius;
+   
 
 }
