@@ -12,6 +12,7 @@ int Hearts = 3;
 
 {
     int score = 0;
+    bool gameOver = false;
 
     Raylib.InitWindow(ScreenWidth, ScreenHight, "Missile Command");
     SetTargetFPS(60);
@@ -67,7 +68,13 @@ int Hearts = 3;
 
             m.Position.Y += m.Speed * dt;
             if (m.Position.Y > ScreenHight)
-                m.Active = false;
+            {             
+                      m.Active = false;
+
+                      Hearts = Math.Max(0,Hearts - 1);
+
+            }
+
         }
 
         // updatera explosionerna
@@ -123,6 +130,11 @@ int Hearts = 3;
 
                 DrawText($"Hearts: {Hearts}", 10 , 20 , 25 , Color.White);
                 DrawText($"score: {score}" , 10 , 40 , 25 , Color.White);
+
+                if (Hearts <= 0)
+                {
+                    break;
+                }
 
         EndDrawing();
 
