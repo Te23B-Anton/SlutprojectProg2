@@ -12,7 +12,6 @@ int Hearts = 3;
 
 {
     int score = 0;
-    bool gameOver = false;
 
     Raylib.InitWindow(ScreenWidth, ScreenHight, "Missile Command");
     SetTargetFPS(60);
