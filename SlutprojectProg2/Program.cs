@@ -9,8 +9,11 @@ int MaxExplosion = 5;
 int MaxMissiles = 20;
 int Hearts = 3;
 
+bool gameover = false;
 
+while (!WindowShouldClose() && !gameover)
 {
+
     int score = 0;
 
     Raylib.InitWindow(ScreenWidth, ScreenHight, "Missile Command");
@@ -21,7 +24,7 @@ int Hearts = 3;
     List<Explosion> explosions = new List<Explosion>();
 
     for (int i = 0; i < MaxMissiles; i++) missiles.Add(new Missile());
-    for (int i = 0; i < MaxExplosion; i++) explosions.Add(new Explosion()) ;
+    for (int i = 0; i < MaxExplosion; i++) explosions.Add(new Explosion());
 
 
     while (!WindowShouldClose())
@@ -62,36 +65,21 @@ int Hearts = 3;
 
         //updatera missilerna
         foreach (var m in missiles)
-        {
-            if (!m.Active) continue;
-
-            m.Position.Y += m.Speed * dt;
-            if (m.Position.Y > ScreenHight)
-            {             
-                      m.Active = false;
-
-                      Hearts = Math.Max(0,Hearts - 1);
-
-            }
-
-        }
+            if (m.Updatee(dt, ScreenHight))
+                Hearts = Math.Max(0, Hearts - 1);
+            
+        
 
         // updatera explosionerna
         foreach (var e in explosions)
         {
-            if (!e.Active) continue;
-
-            e.Radius += 100 * dt;
-            e.Life -= dt;
-            if (e.Life <= 0)
-                e.Active = false;
+            e.Update(dt);
 
         }
 
         // collisoner 
         foreach (var m in missiles)
         {
-
 
             if (!m.Active) continue;
 
@@ -112,6 +100,10 @@ int Hearts = 3;
         }
 
 
+    if (Hearts <= 0)
+    {
+        gameover = true;
+    }
 
 
 
@@ -119,22 +111,16 @@ int Hearts = 3;
         BeginDrawing();
         ClearBackground(Color.Black);
 
-        foreach (var m in missiles)
-            if (m.Active)
-                Raylib.DrawCircleV(m.Position, 4, Color.Red);
+        foreach (var m in missiles) m.draw();
+        foreach (var e in explosions) e.draw();
 
-        foreach (var e in explosions)
-            if (e.Active)
-                Raylib.DrawCircleLines((int)e.Posistion.X, (int)e.Posistion.Y, e.Radius, Color.Orange);
+        DrawText($"Hearts: {Hearts}", 10, 20, 25, Color.White);
+        DrawText($"score: {score}", 10, 40, 25, Color.White);
 
-                DrawText($"Hearts: {Hearts}", 10 , 20 , 25 , Color.White);
-                DrawText($"score: {score}" , 10 , 40 , 25 , Color.White);
-                //DrawText($"Missiles: {MaxMissiles}", 10 , 60 , 25 , Color.White);
-
-                if (Hearts <= 0)
-                {
-                    break;
-                }
+        if (gameover)
+        {
+            DrawText("Game Over!", ScreenWidth / 2 - 100, ScreenHight / 2, 40, Color.Red);
+        }
 
         EndDrawing();
 
