@@ -17,11 +17,11 @@ int Hearts = 3;
     SetTargetFPS(60);
 
 
-    Missile[] missiles = new Missile[MaxMissiles];
-    Explosion[] explosions = new Explosion[MaxExplosion];
+    List<Missile> missiles = new List<Missile>();
+    List<Explosion> explosions = new List<Explosion>();
 
-    for (int i = 0; i < MaxMissiles; i++) missiles[i] = new Missile();
-    for (int i = 0; i < MaxExplosion; i++) explosions[i] = new Explosion();
+    for (int i = 0; i < MaxMissiles; i++) missiles.Add(new Missile());
+    for (int i = 0; i < MaxExplosion; i++) explosions.Add(new Explosion()) ;
 
 
     while (!WindowShouldClose())
@@ -129,6 +129,7 @@ int Hearts = 3;
 
                 DrawText($"Hearts: {Hearts}", 10 , 20 , 25 , Color.White);
                 DrawText($"score: {score}" , 10 , 40 , 25 , Color.White);
+                //DrawText($"Missiles: {MaxMissiles}", 10 , 60 , 25 , Color.White);
 
                 if (Hearts <= 0)
                 {
