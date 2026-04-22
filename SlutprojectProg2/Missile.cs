@@ -8,7 +8,7 @@ public class Missile
     public Vector2 Position;
 
     //returnerar true om missile når botten och tappar ett hjärta
-    public void Updatee(float dt, int ScreenHight)
+    public bool Update(float dt, int ScreenHight)
     {
         if (!Active) return false;
         Position.Y += Speed * dt;
@@ -21,7 +21,7 @@ public class Missile
         return false;
     }
 
-    public void draw()
+    public void Draw()
     {
         if (Active)
             Raylib_cs.Raylib.DrawCircleV(Position, 4, Raylib_cs.Color.Red);

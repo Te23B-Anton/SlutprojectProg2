@@ -7,7 +7,7 @@ public class Explosion
 
     public float Life;
 
-    public Vector2 Posistion;
+    public Vector2 Position;
 
     public float Radius;
 
@@ -21,11 +21,11 @@ public class Explosion
         if (Life <= 0)
             Active = false;
     }
-    public void draw()
+    public void Draw()
     {
         if (Active)
         {
-            Raylib_cs.Raylib.DrawCircleLines((int)Posistion.X, (int)Posistion.Y, Radius, Raylib_cs.Color.Orange);
+            Raylib_cs.Raylib.DrawCircleLines((int)Position.X, (int)Position.Y, Radius, Raylib_cs.Color.Orange);
         }
     }
 }
